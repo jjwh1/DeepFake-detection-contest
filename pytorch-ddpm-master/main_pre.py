@@ -51,7 +51,7 @@ flags.DEFINE_integer('num_workers', 4, help='workers of Dataloader')
 flags.DEFINE_float('ema_decay', 0.9999, help="ema decay rate")
 flags.DEFINE_bool('parallel', False, help='multi gpu training')
 # Logging & Sampling
-flags.DEFINE_string('logdir', r"D:\diffusion\2", help='log directory')
+flags.DEFINE_string('logdir', '/content/drive/MyDrive/IITD/result_1', help='log directory')
 flags.DEFINE_integer('sample_size', 64, "sampling size of images")
 flags.DEFINE_integer('sample_step', 1000, help='frequency of sampling')
 # Evaluation
@@ -140,7 +140,7 @@ def evaluate(sampler, model):
 
 def train():
     # dataset
-    tds = glob(r"C:\Users\8138\Desktop\DB\IIT_Delhi\IIT_Delhi\IITD_Database", '*', True)
+    tds = glob('/content/dataset/IITD_Database', '*', True)
 
     train_ls = tds[:int(len(tds) * 0.8)]
     valid_ls = tds[int(len(tds) * 0.8):]
