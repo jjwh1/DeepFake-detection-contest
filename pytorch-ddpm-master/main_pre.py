@@ -43,11 +43,11 @@ flags.DEFINE_enum('var_type', 'fixedlarge', ['fixedlarge', 'fixedsmall'], help='
 # Training
 flags.DEFINE_float('lr', 2e-4, help='target learning rate')
 flags.DEFINE_float('grad_clip', 1., help="gradient norm clipping")
-flags.DEFINE_integer('total_steps', 1000000, help='total training steps')
+flags.DEFINE_integer('total_steps', 1200000, help='total training steps')
 flags.DEFINE_integer('img_size', 64, help='image size')
 flags.DEFINE_integer('warmup', 5000, help='learning rate warmup')
-flags.DEFINE_integer('batch_size', 4, help='batch size')
-flags.DEFINE_integer('num_workers', 6, help='workers of Dataloader')
+flags.DEFINE_integer('batch_size', 8, help='batch size')
+flags.DEFINE_integer('num_workers', 8, help='workers of Dataloader')
 flags.DEFINE_float('ema_decay', 0.9999, help="ema decay rate")
 flags.DEFINE_bool('parallel', False, help='multi gpu training')
 # Logging & Sampling
