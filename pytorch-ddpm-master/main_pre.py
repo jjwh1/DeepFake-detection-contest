@@ -140,7 +140,7 @@ def evaluate(sampler, model):
 
 def train():
     # dataset
-    tds = glob('/content/dataset/IITD_Database', '*', True)
+    tds = glob('/content/dataset', '*', True)
 
     train_ls = tds[:int(len(tds) * 0.8)]
     valid_ls = tds[int(len(tds) * 0.8):]
