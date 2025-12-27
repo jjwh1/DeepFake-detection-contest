@@ -140,7 +140,7 @@ def evaluate(sampler, model):
 
 def train():
     # dataset
-    tds = glob("/content/dataset/db1_224_for_gt_inpainting_trainset", '*', True)
+    tds = glob("/content/dataset/db1_224_for_gt_inpainting_trainset", "*.bmp", True)
 
     train_ls = tds[:int(len(tds) * 0.8)]
     valid_ls = tds[int(len(tds) * 0.8):]
