@@ -145,15 +145,18 @@ def train():
     train_ls = tds[:int(len(tds) * 0.8)]
     valid_ls = tds[int(len(tds) * 0.8):]
 
+    ttls = train_ls
+    tvls = valid_ls
+
     # target train list
-    ttls = []
-    for path in train_ls:
-        ttls += glob(path, '*', True)
+    # ttls = []
+    # for path in train_ls:
+    #     ttls += glob(path, '*', True)
 
     # target valid list
-    tvls = []
-    for path in valid_ls:
-        tvls += glob(path, '*', True)
+    # tvls = []
+    # for path in valid_ls:
+    #     tvls += glob(path, '*', True)
 
     mean = [0.5, 0.5, 0.5]
     std = [0.5, 0.5, 0.5]
