@@ -64,7 +64,7 @@ flags.DEFINE_string('fid_cache', './stats/cifar10.train.npz', help='FID cache')
 flags.DEFINE_integer('val_step', 5000,
                      help='frequency of computing validation loss, 0 to disable')
 
-flags.DEFINE_string('resume', "/content/drive/MyDrive/IITD/ckpt_last.pt", help='path to checkpoint to resume training')
+flags.DEFINE_string('resume', "/content/drive/MyDrive/IITD/I3FDM_Distance_db1/ckpt_last.pt", help='path to checkpoint to resume training')
 flags.DEFINE_integer('accum_steps', 6, help='gradient accumulation steps')
 
 device = torch.device('cuda:0')
