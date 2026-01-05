@@ -37,7 +37,7 @@ def inverse_fusion_sampling(
     # x_T ~ N(0, I)
     x_t = torch.randn((B, C, H, W), device=device)
 
-    for t in trange(T-1, -1, -1, desc="Diffusion steps", leave=False):
+    for t in range(T-1, -1, -1):
 
         t_tensor = torch.full((B,), t, device=device, dtype=torch.long)
 
@@ -47,13 +47,9 @@ def inverse_fusion_sampling(
         sqrt_a_bar = torch.sqrt(a_bar_t)
         sqrt_one_minus = torch.sqrt(1.0 - a_bar_t)
 
-        # x̄₀
         x0_bar = (x_t - sqrt_one_minus * eps_theta) / sqrt_a_bar
-
-        # mask fusion
         x0_tilde = mask * x0_bar + x_m
 
-        # inverse fusion
         if t > 0:
             for _ in range(n_inv):
                 eps = torch.randn_like(x_t)
@@ -61,7 +57,6 @@ def inverse_fusion_sampling(
         else:
             x_t = x0_tilde
 
-        # posterior sampling
         if t > 0:
             a_t = alphas[t]
             a_bar_prev = alpha_bar[t - 1]
@@ -76,6 +71,7 @@ def inverse_fusion_sampling(
             x_t = mu + sigma * z
         else:
             x_t = x0_tilde
+
 
     return x_t
 
