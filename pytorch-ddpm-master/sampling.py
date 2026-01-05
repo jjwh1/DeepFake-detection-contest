@@ -141,8 +141,9 @@ def main(args):
 
     print(f"[INFO] Total inference images: {len(input_files)}")
 
+    pbar = tqdm(input_files, desc="Processing images", ncols=100)
 
-    for img_path in tqdm(input_files, desc="Processing images"):
+    for img_path in pbar:
         name = os.path.basename(img_path)
 
         x_0 = load_image(
@@ -152,7 +153,7 @@ def main(args):
 
         mask_path = os.path.join(args.mask_dir, name)
         if not os.path.exists(mask_path):
-            print(f"[!] mask not found, skip: {name}")
+            pbar.set_postfix_str(f"mask missing: {name}")
             continue
 
         m = load_image(
@@ -181,7 +182,11 @@ def main(args):
         x0 = (x0 + 1) / 2
         save_image(x0, os.path.join(args.save_dir, name))
 
-        print(f"[✓] saved: {name}")
+        # ✔ 한 장 끝날 때만 상태 갱신
+        pbar.set_postfix_str(f"saved={name}")
+
+
+        
     
     
     
