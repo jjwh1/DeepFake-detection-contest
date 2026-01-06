@@ -203,14 +203,14 @@ if __name__ == "__main__":
     nargs="+",
     type=str,
     default=[
-        '/content/dataset/reflection_random(50to1.7)_db1_224_trainset',
-        '/content/dataset/reflection_random(50to1.7)_db1_224_validset',
+        '/content/dataset/reflection_random(50to1.7)_db2_224_trainset',
+        '/content/dataset/reflection_random(50to1.7)_db2_224_validset',
     ],
     help="Input directories for inference (train + valid)"
     )
 
-    parser.add_argument("--mask_dir", type=str,default='/content/dataset/CASIA_Distance/algorithm/450to50000_174x174padding_if_gac1_4000_algorithm/db1_test_layer12_0.3_only_mask_h2.8_w3')
-    parser.add_argument("--save_dir", type=str, default="/content/drive/MyDrive/IITD/I3FDM_Distance_db1/test_db1_largemask_T_sample_1000_betaT_0.01")
+    parser.add_argument("--mask_dir", type=str,default='/content/dataset/CASIA_Distance/algorithm/450to50000_174x174padding_if_gac1_4000_algorithm/db2_test_layer12_0.3_only_mask_h2.8_w3')
+    parser.add_argument("--save_dir", type=str, default="/content/drive/MyDrive/IITD/I3FDM_Distance_db1/test_db2_largemask_T_sample_1000_betaT_0.01")
 
     parser.add_argument("--img_size", type=int, default=128)
     parser.add_argument("--T_model", type=int, default=1000)  # 고정
